@@ -1,0 +1,28 @@
+// Place all the styles related to the LearnEasy controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.splash {
+  background-image: image-url("hero5.jpg");
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+.welcome-descript
+{
+  text-align: center;
+  width: 700px;
+  padding: 20px;
+  border: solid 1px;
+  border-radius: 5px;
+  color: #F7F7F7;
+  font-size: 200%;
+  margin-top: 20%;
+  text-align: center;
+}
+.start-button
+{
+  width: 150px;
+  border: solid 1px;
+  border-radius: 2px;
+}

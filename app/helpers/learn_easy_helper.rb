@@ -1,0 +1,2 @@
+module LearnEasyHelper
+end

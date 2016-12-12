@@ -1,0 +1,51 @@
+.nav-wrapper
+{
+}
+
+.img-com img
+{
+  margin-top:4px;
+}
+.nav-com-name
+{
+  width:40%;
+  float: left;
+  font-size: 40px;
+  color: #F7F7F7;
+}
+.nav-buttons
+{
+
+  width:59%;
+  float: left;
+}
+
+.nav-buttons ul li
+{
+  padding: 3px;
+  display:inline;
+  font-size: 21px;
+  color: #F7F7F7;
+}
+.nav-com-name, .nav-buttons
+{
+  display:inline;
+}
+
+hr.style-seven {
+  height: 30px;
+  border-style: solid;
+  border-color: black;
+  border-width: 1px 0 0 0;
+  border-radius: 20px;
+}
+hr.style-seven:before { /* Not really supposed to work, but does */
+  display: block;
+  content: "";
+  height: 30px;
+  margin-top: -31px;
+  border-style: solid;
+  border-color: black;
+  border-width: 0 0 1px 0;
+  border-radius: 20px;
+}
