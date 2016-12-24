@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Lesions</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name lesion</th>
+      <th>Description</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_lesions.each do |admin_lesion| %>
+      <tr>
+        <td><%= admin_lesion.name_lesion %></td>
+        <td><%= admin_lesion.description %></td>
+        <td><%= link_to 'Show', admin_lesion %></td>
+        <td><%= link_to 'Edit', edit_admin_lesion_path(admin_lesion) %></td>
+        <td><%= link_to 'Destroy', admin_lesion, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lesion', new_admin_lesion_path %>

@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  en_word: MyString
+  en_audio_word: MyString
+  bg_word: MyString
+  bg_audio_word: MyString
+  visible_word: MyString
+  img_word: MyString
+  lesion_id: 1
+
+two:
+  en_word: MyString
+  en_audio_word: MyString
+  bg_word: MyString
+  bg_audio_word: MyString
+  visible_word: MyString
+  img_word: MyString
+  lesion_id: 1
