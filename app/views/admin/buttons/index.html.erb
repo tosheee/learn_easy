@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Buttons</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name button</th>
+      <th>Title button</th>
+      <th>Type button</th>
+      <th>Path button</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_buttons.each do |admin_button| %>
+      <tr>
+        <td><%= admin_button.name_button %></td>
+        <td><%= admin_button.title_button %></td>
+        <td><%= admin_button.type_button %></td>
+        <td><%= admin_button.path_button %></td>
+        <td><%= link_to 'Show', admin_button %></td>
+        <td><%= link_to 'Edit', edit_admin_button_path(admin_button) %></td>
+        <td><%= link_to 'Destroy', admin_button, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Button', new_admin_button_path %>

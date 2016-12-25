@@ -12,11 +12,18 @@
   <%= render 'shared/navbar'%>
 </header>
 
-<%= yield %>
+<div class="mein-wrapper">
 
-<header>
+  <main>
+    <%= yield %>
+ </main>
+
+
+</div>
+
+<footer>
   <%= render 'shared/navfooter'%>
-</header>
+</footer>
 
 </body>
 </html>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name_button: MyString
+  title_button: MyString
+  type_button: MyString
+  path_button: MyString
+
+two:
+  name_button: MyString
+  title_button: MyString
+  type_button: MyString
+  path_button: MyString
