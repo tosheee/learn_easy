@@ -1,0 +1,89 @@
+<p id="notice"><%= notice %></p>
+
+<script>
+    function play_pause(event)
+    {
+        var myAudio = document.getElementsByClassName("myAudio")[event]
+        myAudio.play();
+    }
+
+    function play_all() {
+        var run, allAudio = document.querySelectorAll(".myAudio");
+        var i = 0;
+
+        run = function()
+        {
+            console.log(allAudio[i])
+            if (i < allAudio.length)
+            {
+                allAudio[i].play();
+                myFunction(i);
+                i++;
+                setTimeout(run, 2000);
+            }
+
+        }
+
+     run();
+    }
+
+
+
+    function myFunction(i)
+    {
+
+        if (i < 1 )
+        {
+            document.getElementsByTagName('summary')[i].style.color = "#ff0000";
+        }
+        else
+        {
+            document.getElementsByTagName('summary')[i-1].style.color = "#000000";
+            document.getElementsByTagName('summary')[i].style.color = "#ff0000";
+        }
+    }
+
+
+
+
+
+
+</script>
+<div id="wrapper-table-words">
+
+  <div onclick="play_all()">Play All</div>
+  <div onclick="stop_play()">Stop play</div>
+
+
+<table class="table-word">
+  <tbody>
+  <% i = 0%>
+  <% @admin_word_lesions.each do |admin_word_lesion| %>
+
+      <tr>
+        <td>
+          <details>
+            <summary> <%= admin_word_lesion.en_word %></summary>
+            <div class="second-word"><%= admin_word_lesion.bg_word %></div>
+        </details>
+        </td>
+
+        <td><audio preload="none" class="myAudio" src='<%= "#{admin_word_lesion.en_audio_word}" %>' type="audio/mpeg"></audio></td>
+        <td><div id="<%= i %>" class="play-icon" onclick="play_pause(this.id)"><%= image_tag("play-icon.gif") %></div></td>
+        <% i += 1%>
+
+        <td><% admin_word_lesion.bg_audio_word %></td>
+        <td><% admin_word_lesion.visible_word %></td>
+        <td><img src="<% admin_word_lesion.img_word %>"></td>
+        <td><% admin_word_lesion.lesion_id %></td>
+
+      </tr>
+
+  <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<% link_to 'New Word lesion', new_admin_word_lesion_path %>
+</div>

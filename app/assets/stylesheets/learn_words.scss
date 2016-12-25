@@ -1,0 +1,42 @@
+#wrapper-table-words
+{
+  margin: auto;
+  width: 50%;
+  padding: 10px;
+}
+
+.play-icon img
+{
+  width: 35px;
+}
+
+.second-word
+{
+  text-align: center;
+  padding: 15px;
+  font-size: 150%;
+}
+
+summary
+{
+  width: 700px;
+  color: #666666;
+  padding: 5px;
+  font-size: 150%;
+  outline: none;
+}
+
+#edit-link
+{
+  float: right;
+}
+
+summary:hover {
+  color: #00cccc;
+
+}
+
+tr:nth-child(even)
+{
+  background-color: #eeeeee;
+}
