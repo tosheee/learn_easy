@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  devise_for :users
   root to: 'learn_easy#learn_easy'
 
   get 'home/index'
