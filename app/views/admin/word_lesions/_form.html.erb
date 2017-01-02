@@ -15,6 +15,12 @@
     <%= f.label :en_word %><br>
     <%= f.text_field :en_word %>
   </div>
+
+  <div class="field">
+    <%= f.label :bg_word %><br>
+    <%= f.select(:parts_of_speech, [[''], ['verb'], ['noun'], ['adverb'], ['adjective'], ['pronoun'], ['preposition'], ['conjunction'], ['interjection'], [' numeral'], ['particle']], {:prompt => 'Select part of speech'}, {class: "form-control"}) %>
+  </div>
+
   <div class="field">
     <%= f.label :en_audio_word %><br>
     <%= f.file_field :en_audio_word %>
@@ -37,6 +43,7 @@
   </div>
   <div class="field">
     <%= f.label :lesion_id %><br>
+    <%= f.collection_select(:lesion_id, Admin::Lesion.all, :id, :name_lesion, :prompt => "Select Lesion")  %>
     <%= f.number_field :lesion_id %>
   </div>
   <div class="actions">

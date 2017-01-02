@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161226205031) do
+ActiveRecord::Schema.define(version: 20170101112557) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -37,11 +37,12 @@ ActiveRecord::Schema.define(version: 20161226205031) do
     t.string   "en_audio_word"
     t.string   "bg_word"
     t.string   "bg_audio_word"
-    t.string   "visible_word",  default: "true"
+    t.string   "visible_word",    default: "true"
     t.string   "img_word"
     t.integer  "lesion_id"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
+    t.string   "parts_of_speech"
   end
 
   create_table "users", force: :cascade do |t|

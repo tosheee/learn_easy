@@ -69,6 +69,6 @@ class Admin::WordLesionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def admin_word_lesion_params
-      params.require(:admin_word_lesion).permit(:en_word, :en_audio_word, :bg_word, :bg_audio_word, :visible_word, :img_word, :lesion_id)
+      params.require(:admin_word_lesion).permit(:en_word, :en_audio_word, :bg_word, :bg_audio_word, :visible_word, :img_word, :lesion_id, :parts_of_speech)
     end
 end
