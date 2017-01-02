@@ -1,4 +1,14 @@
+<style>
+    .admin-index{
+        margin: 0 auto;
+    }
+</style>
+
+<%= render 'admin/shared/ver_admin_nav'%>
+
 <p id="notice"><%= notice %></p>
+
+<div class="admin-index">
 
 <h1>Listing Admin Buttons</h1>
 
@@ -31,3 +41,4 @@
 <br>
 
 <%= link_to 'New Button', new_admin_button_path %>
+</div>

@@ -1,3 +1,11 @@
+<style>
+  td img{
+      width: 30px;
+  }
+
+</style>
+<%= render 'admin/shared/ver_admin_nav'%>
+
 <p id="notice"><%= notice %></p>
 
 <h1>Listing Admin Word Lesions</h1>
@@ -6,6 +14,7 @@
   <thead>
     <tr>
       <th>En word</th>
+      <th>Parts of speech</th>
       <th>En audio word</th>
       <th>Bg word</th>
       <th>Bg audio word</th>
@@ -20,11 +29,16 @@
     <% @admin_word_lesions.each do |admin_word_lesion| %>
       <tr>
         <td><%= admin_word_lesion.en_word %></td>
+        <td><%= admin_word_lesion.parts_of_speech %></td>
+
         <td>
-        <audio controls>
-          <source src='<%= "#{admin_word_lesion.en_audio_word}" %>'  type="audio/mpeg" >
-        </audio>
-        <%= admin_word_lesion.en_audio_word %></td>
+            <audio controls>
+              <source src='<%= "#{admin_word_lesion.en_audio_word}" %>'  type="audio/mpeg" >
+            </audio>
+        <% admin_word_lesion.en_audio_word %>
+        </td>
+
+        <td><%= admin_word_lesion.bg_word %></td>
         <td><%= admin_word_lesion.bg_word %></td>
         <td><%= admin_word_lesion.bg_audio_word %></td>
         <td><%= admin_word_lesion.visible_word %></td>

@@ -1,5 +1,9 @@
 Rails.application.routes.draw do
 
+  namespace :admin do
+
+  end
+
   get 'courses' , to: 'courses#courses'
   get 'courses/:id', to: 'courses#show'
 
@@ -10,6 +14,7 @@ Rails.application.routes.draw do
   get 'learn_words/index'
 
   namespace :admin do
+    get '', to: 'admin#admin'
     resources :word_lesions
     resources :lesions
     resources :buttons

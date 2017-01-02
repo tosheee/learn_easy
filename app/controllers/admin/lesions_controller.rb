@@ -1,4 +1,4 @@
-class Admin::LesionsController < ApplicationController
+class Admin::LesionsController < Admin::AdminController
   before_action :set_admin_lesion, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/lesions

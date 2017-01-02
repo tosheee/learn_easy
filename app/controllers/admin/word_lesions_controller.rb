@@ -1,4 +1,4 @@
-class Admin::WordLesionsController < ApplicationController
+class Admin::WordLesionsController < Admin::AdminController
   before_action :set_admin_word_lesion, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/word_lesions

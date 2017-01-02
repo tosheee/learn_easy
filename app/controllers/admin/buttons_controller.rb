@@ -1,4 +1,4 @@
-class Admin::ButtonsController < ApplicationController
+class Admin::ButtonsController < Admin::AdminController
   before_action :set_admin_button, only: [:show, :edit, :update, :destroy]
 
   # GET /admin/buttons

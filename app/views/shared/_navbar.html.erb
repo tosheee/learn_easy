@@ -5,13 +5,13 @@
       </div>
 
   <ul id="navbar">
-        <li class="nav-button"><a href="#home"><b>HOME</b></a></li>
+        <li class="nav-button"><a href="#"><b>HOME</b></a></li>
         <li class="nav-button"><a href="/courses"><b>COURSES</b></a></li>
-        <li class="nav-button"><a href="#news"><b>FEATURES</b></a></li>
-        <li class="nav-button"><a href="#news"><b>CONTACT</b></a></li>
+        <li class="nav-button"><a href="#"><b>FEATURES</b></a></li>
+        <li class="nav-button"><a href="#"><b>CONTACT</b></a></li>
 
         <% if user_signed_in? && current_user.role == "super_admin" %>
-            <li class="nav-button"><a href="#news"><b>ADMIN</b></a></li>
+            <li class="nav-button"><a href="/admin"><b>ADMIN</b></a></li>
         <% end %>
 
   <ul id="nav-user-section" >
