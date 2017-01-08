@@ -17,4 +17,14 @@ class CoursesController < ApplicationController
    end
   end
 
+  def exercise_en
+    @courses_id = params[:id]
+    @admin_word_lesions = Admin::WordLesion.where(lesion_id: @courses_id)
+  end
+
+  def exercise_bg
+    @courses_id = params[:id]
+    @admin_word_lesions = Admin::WordLesion.where(lesion_id: @courses_id)
+  end
+
 end

@@ -6,6 +6,9 @@ Rails.application.routes.draw do
 
   get 'courses' , to: 'courses#courses'
   get 'courses/:id', to: 'courses#show'
+  get 'courses/:id/exercise_en', to: 'courses#exercise_en'
+  get 'courses/:id/exercise_bg', to: 'courses#exercise_bg'
+
 
   devise_for :users
   root to: 'learn_easy#learn_easy'

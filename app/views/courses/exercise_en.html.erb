@@ -1,0 +1,52 @@
+<script>
+    document.addEventListener("keyup", function(event) {
+        event.preventDefault();
+        if (event.keyCode == 13) {
+            check_text()
+            }
+        });
+
+    function check_text() {
+        var view_word = document.getElementById('view-text').innerHTML;
+        var hiden_word = document.getElementById('view-text-hiden');
+        var enter_word = document.getElementById('enter-text').value;
+
+        if (hiden_word.innerHTML == enter_word) {
+            hiden_word.style.visibility = 'visible';
+            hiden_word.innerHTML = "Exelent";
+            location.reload();
+        } else {
+            hiden_word.style.visibility = 'visible';
+            hiden_word.innerHTML = "Check what is written";
+            location.reload();
+        }
+    }
+
+    function view_translations() {
+        document.getElementById('view-text-hiden').style.visibility = 'visible';
+    }
+</script>
+
+<div id="wrapper-table-words">
+
+  <% words = @admin_word_lesions %>
+  <% index = rand(words.length) %>
+  <div id="search-form">
+    <h1>
+      <div id="view-text" onclick="view_translations()"><%= words[index].en_word %></div>
+    </h1>
+
+    <div id="view-text-hiden"><%= words[index].bg_word %></div>
+
+    <div><img class="img-words" src="<%= words[index].img_word %>" /></div>
+
+    <input class="text-field" type="text" id="enter-text" placeholder="Enter translation" autofocus/>
+
+    <div>
+      <br>
+      <button class="common-button" for="enter-text" onclick="check_text()">Check</button>
+      <a class="exercise-button play-buttons" href="/courses/<%= @courses_id %>/exercise_bg">Exercise BG => EN</a>
+    </div>
+
+  </div>
+</div>
