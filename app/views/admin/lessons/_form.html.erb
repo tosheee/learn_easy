@@ -1,0 +1,29 @@
+<%= form_for(@admin_lesson) do |f| %>
+  <% if @admin_lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_lesson.errors.count, "error") %> prohibited this admin_lesson from being saved:</h2>
+
+      <ul>
+      <% @admin_lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :view %><br>
+    <%= f.check_box :view %>
+  </div>
+  <div class="field">
+    <%= f.label :conversation %><br>
+    <%= f.text_area :conversation %>
+  </div>
+  <div class="field">
+    <%= f.label :words %><br>
+    <%= f.text_area :words %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

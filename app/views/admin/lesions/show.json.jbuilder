@@ -1,1 +1,0 @@
-json.partial! "admin_lesions/admin_lesion", admin_lesion: @admin_lesion

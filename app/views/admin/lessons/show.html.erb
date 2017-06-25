@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>View:</strong>
+  <%= @admin_lesson.view %>
+</p>
+
+<p>
+  <strong>Conversation:</strong>
+  <%= @admin_lesson.conversation %>
+</p>
+
+<p>
+  <strong>Words:</strong>
+  <%= @admin_lesson.words %>
+</p>
+
+<%= link_to 'Edit', edit_admin_lesson_path(@admin_lesson) %> |
+<%= link_to 'Back', admin_lessons_path %>

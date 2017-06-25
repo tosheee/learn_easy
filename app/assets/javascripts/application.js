@@ -16,12 +16,12 @@
 //= require turbolinks
 //= require_tree .
 
-document.addEventListener("keyup", function(event) {
-    event.preventDefault();
-    if (event.keyCode == 13) {
-        check_text()
-    }
-});
+//document.addEventListener("keyup", function(event) {
+  //  event.preventDefault();
+   // if (event.keyCode == 13) {
+     //   check_text()
+   // }
+//});
 
 function view_translations() {
     document.getElementById('view-text-hidden').style.visibility = 'visible';

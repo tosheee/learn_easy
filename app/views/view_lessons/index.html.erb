@@ -1,0 +1,46 @@
+<style>
+    .lesson-wrapper {
+        width: 800px;
+        font-size: 20px;
+
+        margin: 0 auto;
+    }
+
+        .bg-word{
+
+            width: 400px;
+            float: left;
+        }
+        .en-word{
+            width: 400px;
+            float: left;
+        }
+
+
+</style>
+
+<div class="lesson-wrapper">
+<hr>
+<% @lessons.each_with_index do |lesson, i| %>
+      <div class="btn-group btn-group-justified">
+        <a href="/view_lessons/<%= lesson.id%>/exercise_bg" class="btn btn-primary"> Exercise BG -> EN </a>
+
+        <a href="/view_lessons/<%= lesson.id%>/exercise_en" class="btn btn-primary"> Exercise EN -> BG </a>
+      </div>
+
+    <% eval(lesson.conversation).each do |row| %>
+
+          <% row.each do |en, bg| %>
+              <br>
+           <div class="en-word">- <%= en %></div>  <div class="bg-word">- <%= bg %></div>
+
+        <% end  %>
+
+    <% end %>
+      <br>
+      <br>
+      <br>
+      <hr>
+<% end %>
+
+</div>

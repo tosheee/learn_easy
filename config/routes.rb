@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
 
+  resources :view_lessons
+  get 'view_lessons/:id/exercise_en', to: 'view_lessons#exercise_en'
+  get 'view_lessons/:id/exercise_bg', to: 'view_lessons#exercise_bg'
   namespace :admin do
 
   end
@@ -17,10 +20,10 @@ Rails.application.routes.draw do
   get 'learn_words/index'
 
   namespace :admin do
+    resources :lessons
     get '', to: 'admin#admin'
     resources :word_lesions
-    resources :lesions
-    resources :buttons
+      resources :buttons
   end
 
 end
