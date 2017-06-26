@@ -22,10 +22,10 @@
 <div class="lesson-wrapper">
 <hr>
 <% @lessons.each_with_index do |lesson, i| %>
-      <div class="btn-group btn-group-justified">
-        <a href="/view_lessons/<%= lesson.id%>/exercise_bg" class="btn btn-primary"> Exercise BG -> EN </a>
-
-        <a href="/view_lessons/<%= lesson.id%>/exercise_en" class="btn btn-primary"> Exercise EN -> BG </a>
+      <div>
+        <a href="/view_lessons/<%= lesson.id%>"> Conversation<%= i %> </a>
+        <a href="/view_lessons/<%= lesson.id%>/exercise_bg"> Exercise BG -> EN </a>
+        <a href="/view_lessons/<%= lesson.id%>/exercise_en"> Exercise EN -> BG </a>
       </div>
 
     <% eval(lesson.conversation).each do |row| %>

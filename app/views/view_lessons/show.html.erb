@@ -16,6 +16,14 @@ h2 {
 }
 
 
+h3 {
+    text-align: center;
+    margin-bottom: 50px;
+    color: #fff;
+}
+
+
+
 
 
 /* form starting stylings ------------------------------- */
@@ -179,8 +187,8 @@ h2 {
 
   <div class="col-lg-offset-4 col-lg-4" id="panel">
     <h2>Exercise</h2>
-    <br>
-    <br>
+    <h3><span id="sentence_error"></span></h3>
+
     <form>
     <% eval(@lesson.conversation).each do |row| %>
 
@@ -191,10 +199,13 @@ h2 {
         <input class="field-value" type="text" autofocus required>
         <span class="highlight"></span>
         <span class="bar"></span>
+
         <label>
           <%= en %>
           <span id="sentece-hidden">  -  <%= bg %></span>
-          <span id="result-mesage"></span></label>
+          <span id="result-mesage"></span>
+        </label>
+
       </div>
 
 
@@ -226,10 +237,26 @@ h2 {
       }else{
           hidden_obj.css('visibility', 'visible');
           message_text.html('[ Wrong! ]').css('color', 'red')
+          //sentence_analyze(input_text, ready_text)
+          var sentence_error = $('#sentence_error')
+          //sentence_error.html()
+          sentence_error.html(input_text)
           $(this).val('');
           $(this).focus()
       }
   });
+
+  function sentence_analyze(input_text, ready_text){
+
+      var el_in_text = input_text.split(' ')
+      var el_re_text = ready_text.split(' ')
+      for(var i=0; i < el_in_text.length; i++ ){
+
+      }
+
+      console.log(element_sentence)
+  }
+
 
 function view_translations(){
     $('#sentece-hidden').onclick(function(){

@@ -15,6 +15,12 @@
         color: #fff;
     }
 
+    h3 {
+        text-align: center;
+        margin-bottom: 50px;
+        color: #fff;
+    }
+
     /* form starting stylings ------------------------------- */
     .group {
         position: relative;
@@ -176,8 +182,7 @@
 
   <div class="col-lg-offset-4 col-lg-4" id="panel">
     <h2>Exercise</h2>
-    <br>
-    <br>
+    <h3><span id="sentence_error"></span></h3>
     <form>
       <% eval(@lesson.conversation).each do |row| %>
 
@@ -223,6 +228,9 @@
         }else{
             hidden_obj.css('visibility', 'visible');
             message_text.html('[ Wrong! ]').css('color', 'red')
+            var sentence_error = $('#sentence_error')
+            //sentence_error.html()
+            sentence_error.html(input_text)
             $(this).val('');
             $(this).focus()
         }
