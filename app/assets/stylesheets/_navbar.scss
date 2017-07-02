@@ -1,50 +1,8 @@
-*{
-  margin: 0px;
-  padding: 0px;
+.navbar.navbar-default{
+  border-radius: 0;
+  a.navbar-brand{
+    img{
+      width: 250px;
+    }
+  }
 }
-
-#header { width: 100%; height: 100px; background-color: #F7F7F7;}
-#navbar { width: 1200px;  height: 80px;  float: right; }
-
-#navbar>li.nav-button{ width: 130px;  list-style: none;  float:left; }
-
-li.nav-button>a{ display: block;  color: black;  line-height: 100px;  text-align: center;  font-family: cursive;  font-size:20px;  text-decoration:none;}
-li.nav-button>a:hover { color: #333;}
-li.nav-button>a:hover,
-li.nav-button>a:focus{background:#F7F7F7 ; color: #333}
-
-#nav-user-section{ width: 60px; list-style: none;  float:left; padding-left: 200px; padding-top: 22px; }
-#nav-user-section>li { width: 130px; display: inline-block; }
-#nav-user-section>li a{ display: block; text-align: center; }
-li.user-section>a{display: block;  color: black; font-family: cursive;  font-size:20px;  text-decoration:none;}
-
-
-
-
-#logo {padding-left: 40px ;  width: 200px;  height: 80px;  float: left;  }
-#logo img {  width: 350px;  height: 70px;  float: left; padding-top: 10px;  }
-
-@media screen and (max-width:1260px )  {
-  #navbar {width: 800px;}
-  #navbar>li { width: 150px;}
-  #logo { padding-left: 40px ;  width: 200px;  height: 80px;  float: left;  }
-  #logo>img {height: 80px;  }
-}
-
-@media screen and (max-width:1060px )  {
-  #header {width: 100%; height: 60px; position: relative; top:80px;  }
-  #navbar {width: 100%;  height: 60px;  float: right; }
-  #navbar>li {width: 18%;}
-  li>a{line-height: 60px; font-size:16px; }
-  #logo {width: 200px; height: 80px;  float: left; padding-left: 40px; position: absolute; top:-80px; }
-  #logo img {width: 150px; height: 80px;  float: left; }
-}
-
-@media screen and (max-width: 480px) {
-  #header {width: 100%; height: 60px; }
-  #navbar {width: 100%;  height: 60px; float: none}
-  #navbar>li {width: 100%; list-style: none; float: none; border-bottom: 1px solid skyblue; }
-  li>a{display:block; color:white; line-height: 60px; font-size:16px; background: black; }
-}
-
-
