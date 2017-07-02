@@ -28,18 +28,10 @@
         <a href="/view_lessons/<%= lesson.id%>/exercise_en"> Exercise EN -> BG </a>
       </div>
 
-    <% eval(lesson.conversation).each do |row| %>
-
-          <% row.each do |en, bg| %>
-              <br>
-           <div class="en-word">- <%= en %></div>  <div class="bg-word">- <%= bg %></div>
-
-        <% end  %>
-
+    <% eval(lesson.conversation).map do |k, v| %>
+      <div class="en-word">- <%= k %></div>  <div class="bg-word">- <%= v %></div>
+      <br>
     <% end %>
-      <br>
-      <br>
-      <br>
       <hr>
 <% end %>
 

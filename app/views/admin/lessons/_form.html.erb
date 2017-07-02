@@ -1,13 +1,23 @@
 <style>
 
+
+    .wrapper-form{
+        width: 99%;
+        margin: 0 auto;
+    }
     textarea {
         font-size: 20px;
         width: 90%;
         height: 600px;
     }
+    .input-left, .input-right{
+        font-size: 18px;
+        padding: 5px;
+        margin: 5px;
+    }
 
 </style>
-
+<div class="wrapper-form">
 <%= form_for(@admin_lesson) do |f| %>
   <% if @admin_lesson.errors.any? %>
     <div id="error_explanation">
@@ -25,38 +35,66 @@
     <%= f.label :view %><br>
     <%= f.check_box :view %>
   </div>
+
+
   <div class="field">
-    <%= f.label :conversation %><br>
-    <%= f.text_area :conversation, value: '[
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-{ "" => "" },
-]' %>
+    <% f.label :conversation %><br>
+    <% f.text_area :conversation %>
   </div>
-  <div class="field">
-    <%= f.label :words %><br>
-    <%= f.text_area :words %>
-  </div>
+
+    <br>
+
+    <div class="specification_fields_wrap">
+      <button class="add_spec_field_button">Add specification</button>
+      <div>
+        <label>
+          <input style="width: 500px" type="text" name="admin_lesson[conversation][]" id="admin_lesson_conversation" class="input-left">
+          <input style="width: 500px" type="text" name="admin_lesson[conversation][]" id="admin_lesson_conversation" class="input-right">
+        </label>
+      </div>
+    </div>
+
+    <br>
+    <br>
   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>
+
+</div>
+<script>
+
+    $('.input-left').change(function(){
+        $(this).name
+
+    });
+
+
+
+
+
+    $(document).ready(function() {
+        var max_fields      = 20; //maximum input boxes allowed
+        var wrapper         = $(".specification_fields_wrap"); //Fields wrapper
+        var add_button      = $(".add_spec_field_button"); //Add button ID
+        var x = 1; //initlal text box count
+
+        $(add_button).click(function(e){ //on add input button click
+            e.preventDefault();
+            if(x < max_fields){ //max input box allowed
+                x++; //text box increment
+                $(wrapper).append(
+                        '<div class="fields" ><label>' +
+                        '<input style="width: 500px" type="text" name="admin_lesson[conversation][]" id="admin_lesson_conversation" class="input-left">' +
+                        '  <input style="width: 500px" type="text" name="admin_lesson[conversation][]" id="admin_lesson_conversation" class="input-right">' +
+                        '<a href="#" class="remove_field">Remove</a>' +
+                        '</label></div>'); //add input box
+            }
+        });
+
+        $(wrapper).on("click", ".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div.fields label').remove(); x--;
+        })
+    });
+
+</script>

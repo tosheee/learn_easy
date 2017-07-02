@@ -2,7 +2,7 @@
 
 <h1>Listing Admin Lessons</h1>
 
-<table>
+<table class = "table table-bordered table-striped">
   <thead>
     <tr>
       <th>View</th>
@@ -16,7 +16,12 @@
     <% @admin_lessons.each do |admin_lesson| %>
       <tr>
         <td><%= admin_lesson.view %></td>
-        <td><%= admin_lesson.conversation %></td>
+        <td>
+          <% eval(admin_lesson.conversation).map do |k, v| %>
+              <%= "#{k} --- #{v}" %>
+              <br>
+          <% end %>
+              </td>
         <td><%= admin_lesson.words %></td>
         <td><%= link_to 'Show', admin_lesson %></td>
         <td><%= link_to 'Edit', edit_admin_lesson_path(admin_lesson) %></td>

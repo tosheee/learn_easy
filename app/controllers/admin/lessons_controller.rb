@@ -1,44 +1,31 @@
 class Admin::LessonsController < ApplicationController
   before_action :set_admin_lesson, only: [:show, :edit, :update, :destroy]
 
-  # GET /admin/lessons
-  # GET /admin/lessons.json
+
   def index
     @admin_lessons = Admin::Lesson.all
   end
 
-  # GET /admin/lessons/1
-  # GET /admin/lessons/1.json
   def show
   end
 
-  # GET /admin/lessons/new
   def new
     @admin_lesson = Admin::Lesson.new
   end
 
-  # GET /admin/lessons/1/edit
   def edit
   end
 
-  # POST /admin/lessons
-  # POST /admin/lessons.json
   def create
-    @admin_lesson = Admin::Lesson.new(admin_lesson_params)
-
-    respond_to do |format|
-      if @admin_lesson.save
-        format.html { redirect_to @admin_lesson, notice: 'Lesson was successfully created.' }
-        format.json { render :show, status: :created, location: @admin_lesson }
-      else
-        format.html { render :new }
-        format.json { render json: @admin_lesson.errors, status: :unprocessable_entity }
-      end
-    end
+    admin_lesson = Admin::Lesson.new(admin_lesson_params)
+    convert_array = JSON[admin_lesson.conversation]
+    convert_string = Hash[*convert_array]
+    admin_lesson.conversation = "#{convert_string}"
+    admin_lesson.save
+    @admin_lessons = Admin::Lesson.all
+    render :index
   end
 
-  # PATCH/PUT /admin/lessons/1
-  # PATCH/PUT /admin/lessons/1.json
   def update
     respond_to do |format|
       if @admin_lesson.update(admin_lesson_params)
@@ -51,8 +38,6 @@ class Admin::LessonsController < ApplicationController
     end
   end
 
-  # DELETE /admin/lessons/1
-  # DELETE /admin/lessons/1.json
   def destroy
     @admin_lesson.destroy
     respond_to do |format|
@@ -68,7 +53,23 @@ class Admin::LessonsController < ApplicationController
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
-    def admin_lesson_params
-      params.require(:admin_lesson).permit(:view, :conversation, :words)
+    #def admin_lesson_params
+     # params.require(:admin_lesson).permit(:view, :conversation, :words)
+    #end
+
+
+
+  def admin_lesson_params
+    if params[:admin_lesson][:conversation].is_a?(Hash)
+      params.require(:admin_lesson).permit(:view, :words).tap do |whitelisted|
+        whitelisted[:conversation] = Hash params[:admin_lesson][:conversation].deep_symbolize_keys
+      end
+    else
+      params.require(:admin_lesson).permit(:view, :wors).tap do |whitelisted|
+        whitelisted[:conversation] = params[:admin_lesson][:conversation]
+      end
     end
+  end
+
+
 end
