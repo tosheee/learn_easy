@@ -1,1 +1,0 @@
-json.partial! "admin_buttons/admin_button", admin_button: @admin_button

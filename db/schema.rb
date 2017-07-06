@@ -11,25 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170624164739) do
+ActiveRecord::Schema.define(version: 20170703194250) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "admin_buttons", force: :cascade do |t|
-    t.string   "name_button"
-    t.string   "title_button"
-    t.string   "type_button"
-    t.string   "path_button"
-    t.datetime "created_at",   null: false
-    t.datetime "updated_at",   null: false
-  end
-
-  create_table "admin_lesions", force: :cascade do |t|
-    t.string   "name_lesion"
-    t.text     "description"
+  create_table "admin_all_exercises", force: :cascade do |t|
+    t.integer  "exercite_id"
+    t.string   "title"
+    t.text     "sentences"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+  end
+
+  create_table "admin_categories", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "admin_lessons", force: :cascade do |t|
@@ -40,17 +38,17 @@ ActiveRecord::Schema.define(version: 20170624164739) do
     t.datetime "updated_at",                  null: false
   end
 
-  create_table "admin_word_lesions", force: :cascade do |t|
-    t.string   "en_word"
-    t.string   "en_audio_word"
-    t.string   "bg_word"
-    t.string   "bg_audio_word"
-    t.string   "visible_word",    default: "true"
-    t.string   "img_word"
-    t.integer  "lesion_id"
-    t.datetime "created_at",                       null: false
-    t.datetime "updated_at",                       null: false
-    t.string   "parts_of_speech"
+  create_table "admin_name_exercises", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "admin_sub_categories", force: :cascade do |t|
+    t.integer  "category_id"
+    t.string   "name"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "users", force: :cascade do |t|

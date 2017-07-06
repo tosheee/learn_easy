@@ -1,0 +1,102 @@
+<h1>New Admin All Exercise</h1>
+<%= link_to 'Back', admin_all_exercises_path %>
+
+<style>
+
+
+    .wrapper-form{
+        width: 99%;
+        margin: 0 auto;
+    }
+    textarea {
+        font-size: 20px;
+        width: 90%;
+        height: 600px;
+    }
+    .input-left, .input-right{
+        font-size: 18px;
+        padding: 5px;
+        margin: 5px;
+    }
+
+</style>
+<div class="wrapper-form">
+  <%= form_for(@admin_all_exercise) do |f| %>
+      <% if @admin_all_exercise.errors.any? %>
+          <div id="error_explanation">
+            <h2><%= pluralize(@admin_lesson.errors.count, "error") %> prohibited this admin_lesson from being saved:</h2>
+
+            <ul>
+              <% @admin_all_exercise.errors.full_messages.each do |message| %>
+                  <li><%= message %></li>
+              <% end %>
+            </ul>
+          </div>
+      <% end %>
+
+
+      <div class="field">
+        <%= f.collection_select(:exercite_id, Admin::SubCategory.all, :id, :name, :prompt => "Select Category") %>
+      </div>
+
+      <div class="field">
+        <%= f.label :title %><br>
+        <%= f.text_field :title %>
+      </div>
+      <br>
+
+      <div class="specification_fields_wrap">
+        <button class="add_spec_field_button">Add specification</button>
+        <div>
+          <label>
+            <input style="width: 500px" type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-left">
+            <input style="width: 500px" type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-right">
+          </label>
+        </div>
+      </div>
+
+      <br>
+      <br>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+  <% end %>
+
+</div>
+<script>
+
+    $('.input-left').change(function(){
+        $(this).name
+
+    });
+
+
+
+
+
+    $(document).ready(function() {
+        var max_fields      = 20; //maximum input boxes allowed
+        var wrapper         = $(".specification_fields_wrap"); //Fields wrapper
+        var add_button      = $(".add_spec_field_button"); //Add button ID
+        var x = 1; //initlal text box count
+
+        $(add_button).click(function(e){ //on add input button click
+            e.preventDefault();
+            if(x < max_fields){ //max input box allowed
+                x++; //text box increment
+                $(wrapper).append(
+                        '<div class="fields" ><label>' +
+                        '<input style="width: 500px" type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-left">' +
+                        '  <input style="width: 500px" type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-right">' +
+                        '<a href="#" class="remove_field">Remove</a>' +
+                        '</label></div>'); //add input box
+            }
+        });
+
+        $(wrapper).on("click", ".remove_field", function(e){ //user click on remove text
+            e.preventDefault(); $(this).parent('div.fields label').remove(); x--;
+        })
+    });
+
+</script>
+

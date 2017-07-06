@@ -1,1 +1,0 @@
-json.array! @admin_word_lesions, partial: 'admin_word_lesions/admin_word_lesion', as: :admin_word_lesion

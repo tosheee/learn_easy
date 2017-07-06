@@ -1,0 +1,29 @@
+<%= form_for(@admin_all_exercise) do |f| %>
+  <% if @admin_all_exercise.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_all_exercise.errors.count, "error") %> prohibited this admin_all_exercise from being saved:</h2>
+
+      <ul>
+      <% @admin_all_exercise.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.collection_select(:exercite_id, Admin::SubCategory.all, :id, :name, :prompt => "Select Category") %>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :sentences %><br>
+    <%= f.text_area :sentences %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

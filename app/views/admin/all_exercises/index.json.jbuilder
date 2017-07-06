@@ -1,0 +1,1 @@
+json.array! @admin_all_exercises, partial: 'admin_all_exercises/admin_all_exercise', as: :admin_all_exercise

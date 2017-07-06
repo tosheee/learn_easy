@@ -1,0 +1,1 @@
+json.partial! "admin_all_exercises/admin_all_exercise", admin_all_exercise: @admin_all_exercise

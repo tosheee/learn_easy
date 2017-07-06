@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin All Exercises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Exercite</th>
+      <th>Title</th>
+      <th>Sentences</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_all_exercises.each do |admin_all_exercise| %>
+      <tr>
+        <td><%= admin_all_exercise.exercite_id %></td>
+        <td><%= admin_all_exercise.title %></td>
+        <td><%= admin_all_exercise.sentences %></td>
+        <td><%= link_to 'Show', admin_all_exercise %></td>
+        <td><%= link_to 'Edit', edit_admin_all_exercise_path(admin_all_exercise) %></td>
+        <td><%= link_to 'Destroy', admin_all_exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New All exercise', new_admin_all_exercise_path %>

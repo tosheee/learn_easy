@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Admin Name Exercises</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @admin_name_exercises.each do |admin_name_exercise| %>
+      <tr>
+        <td><%= admin_name_exercise.name %></td>
+        <td><%= link_to 'Show', admin_name_exercise %></td>
+        <td><%= link_to 'Edit', edit_admin_name_exercise_path(admin_name_exercise) %></td>
+        <td><%= link_to 'Destroy', admin_name_exercise, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Name exercise', new_admin_name_exercise_path %>

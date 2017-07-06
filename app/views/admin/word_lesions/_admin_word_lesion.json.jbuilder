@@ -1,2 +1,0 @@
-json.extract! admin_word_lesion, :id, :en_word, :en_audio_word, :bg_word, :bg_audio_word, :visible_word, :img_word, :lesion_id, :created_at, :updated_at
-json.url admin_word_lesion_url(admin_word_lesion, format: :json)

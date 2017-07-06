@@ -1,29 +1,29 @@
 Rails.application.routes.draw do
 
-  resources :view_lessons
-  get 'view_lessons/:id/exercise_en', to: 'view_lessons#exercise_en'
-  get 'view_lessons/:id/exercise_bg', to: 'view_lessons#exercise_bg'
-  namespace :admin do
+  root to: 'learn_easy#learn_easy'
+  devise_for :users
 
+  get 'exercises/:id', to: 'exercises#list'
+  get 'conversation/:id', to: 'exercises#conversation'
+  get 'view_lessons/:id/exercise_en', to: 'exercises#exercise_en'
+  get 'view_lessons/:id/exercise_bg', to: 'exercises#exercise_bg'
+
+  controller :view_lessons do
+    #get 'view_lessons/:id/exercise_en', to: 'view_lessons#exercise_en'
+    #get 'view_lessons/:id/exercise_bg', to: 'view_lessons#exercise_bg'
+    resources :view_lessons
   end
 
-  get 'courses' , to: 'courses#courses'
-  get 'courses/:id', to: 'courses#show'
-  get 'courses/:id/exercise_en', to: 'courses#exercise_en'
-  get 'courses/:id/exercise_bg', to: 'courses#exercise_bg'
 
-
-  devise_for :users
-  root to: 'learn_easy#learn_easy'
-
-  get 'home/index'
-  get 'learn_words/index'
 
   namespace :admin do
-    resources :lessons
     get '', to: 'admin#admin'
-    resources :word_lesions
-      resources :buttons
+    resources :sub_categories
+    resources :categories
+    resources :sub_categories
+    resources :name_exercises
+    resources :lessons
+    resources :all_exercises
   end
 
 end
