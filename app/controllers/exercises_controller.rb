@@ -7,7 +7,8 @@ class ExercisesController < ApplicationController
 
   def conversation
     all_exercise = Admin::AllExercise.all
-    @conversations = all_exercise.where(exercite_id: params[:id])
+    @conversation_id = params[:id]
+    @conversations = all_exercise.where(exercite_id: @conversation_id)
   end
 
   def exercise_bg

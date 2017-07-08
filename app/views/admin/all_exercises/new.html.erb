@@ -1,26 +1,8 @@
 <h1>New Admin All Exercise</h1>
 <%= link_to 'Back', admin_all_exercises_path %>
 
-<style>
 
-
-    .wrapper-form{
-        width: 99%;
-        margin: 0 auto;
-    }
-    textarea {
-        font-size: 20px;
-        width: 90%;
-        height: 600px;
-    }
-    .input-left, .input-right{
-        font-size: 18px;
-        padding: 5px;
-        margin: 5px;
-    }
-
-</style>
-<div class="wrapper-form">
+<div class="wrapper-form-exercise">
   <%= form_for(@admin_all_exercise) do |f| %>
       <% if @admin_all_exercise.errors.any? %>
           <div id="error_explanation">
@@ -63,7 +45,8 @@
   <% end %>
 
 </div>
-<script>
+</div>
+  <script>
 
     $('.input-left').change(function(){
         $(this).name
