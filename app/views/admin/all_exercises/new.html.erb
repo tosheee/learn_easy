@@ -1,3 +1,9 @@
+<style>
+    #admin_all_exercise_title{
+     width: 91%;
+    }
+</style>
+
 <h1>New Admin All Exercise</h1>
 <%= link_to 'Back', admin_all_exercises_path %>
 
@@ -28,8 +34,10 @@
       <br>
 
       <div class="specification_fields_wrap">
-        <button class="add_spec_field_button">Add specification</button>
-        <div>
+        <button class="add_spec_field_button btn-success">Add specification</button>
+        <br>
+
+          <br>
           <label>
             <input style="width: 550px" type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-left">
             <input style="width: 550px " type="text" name="admin_all_exercise[sentences][]" id="admin_lesson_conversation" class="input-right">
@@ -58,7 +66,7 @@
 
 
     $(document).ready(function() {
-        var max_fields      = 20; //maximum input boxes allowed
+        var max_fields      = 60; //maximum input boxes allowed
         var wrapper         = $(".specification_fields_wrap"); //Fields wrapper
         var add_button      = $(".add_spec_field_button"); //Add button ID
         var x = 1; //initlal text box count
