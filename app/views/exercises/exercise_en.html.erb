@@ -218,17 +218,35 @@
         }else{
             hidden_obj.css('visibility', 'visible');
             message_text.html('[ Wrong! ]').css('color', 'red')
-            var sentence_error = $('#sentence_error')
-            //sentence_error.html()
-            sentence_error.html(input_text)
+
+            var split_input = input_text.split('');
+            var split_sentense = ready_text.split('');
+            var result_inspect = '';
+
+            if (split_input.length < split_sentense.length){
+                string_length = split_sentense.length;
+            }else{
+                string_length = split_input.length
+            }
+
+            for (var i = 0; i < string_length; i++){
+                if (split_input[i] == split_sentense[i]){
+                    result_inspect += split_input[i];
+                }else if(split_input[i] == null) {
+                    result_inspect += '<b style="color: red;">' +split_sentense[i]+'<b>';
+                }else{
+                    result_inspect += '<b style="color: red;">' +split_sentense[i]+'<b>';
+                }
+            }
+
+            var sentence_error = $('#sentence_error');
+            var sentence_input = $('#sentence_input');
+
+            sentence_input.html(input_text);
+            sentence_error.html(result_inspect);
+            var different = ready_text.replace(input_text, '')
             $(this).val('');
             $(this).focus()
         }
     });
-
-    function view_translations(){
-        $('#sentece-hidden').onclick(function(){
-            $(this).css('visibility', 'visible');
-        });
-    }
 </script>

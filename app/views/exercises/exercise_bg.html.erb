@@ -2,7 +2,7 @@
     .container{
         margin-top: 10%;
         margin: 0 auto;
-        width: 90%;
+        width: 99%;
     }
     * {
         box-sizing: border-box;
@@ -183,6 +183,7 @@
   </div>
   <br>
   <div class="" id="panel">
+    <h3><span id="sentence_input"></span></h3>
     <h3><span id="sentence_error"></span></h3>
     <form>
       <% eval(@lesson.sentences).each do |bg, en| %>
@@ -218,11 +219,33 @@
         }else{
             hidden_obj.css('visibility', 'visible');
             message_text.html('[ Wrong! ]').css('color', 'red')
+
+            var split_input = input_text.split('');
+            var split_sentense = ready_text.split('');
+            var result_inspect = '';
+
+            if (split_input.length < split_sentense.length){
+                string_length = split_sentense.length;
+            }else{
+                string_length = split_input.length
+            }
+
+            for (var i = 0; i < string_length; i++){
+                if (split_input[i] == split_sentense[i]){
+                    result_inspect += split_input[i];
+                }else if(split_input[i] == null) {
+                    result_inspect += '<b style="color: red;">' +split_sentense[i]+'<b>';
+                }else{
+                    result_inspect += '<b style="color: red;">' +split_sentense[i]+'<b>';
+                }
+            }
+
             var sentence_error = $('#sentence_error');
-            //sentence_error.html();
-            sentence_error.html(input_text);
+            var sentence_input = $('#sentence_input');
+
+            sentence_input.html(input_text);
+            sentence_error.html(result_inspect);
             var different = ready_text.replace(input_text, '')
-            console.log('result='+different)
             $(this).val('');
             $(this).focus()
         }
