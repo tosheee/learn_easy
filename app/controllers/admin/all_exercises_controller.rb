@@ -20,9 +20,11 @@ class Admin::AllExercisesController < ApplicationController
     convert_array = JSON[all_exercise.sentences]
     convert_string = Hash[*convert_array]
     all_exercise.sentences = "#{convert_string}"
-    all_exercise.save
-    @admin_all_exercises = Admin::AllExercise.all
-    render :index
+    if all_exercise.save
+      redirect_to method: :index
+    else
+       render :new
+    end
   end
 
   def update
