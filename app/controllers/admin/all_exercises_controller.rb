@@ -21,9 +21,9 @@ class Admin::AllExercisesController < ApplicationController
     convert_string = Hash[*convert_array]
     all_exercise.sentences = "#{convert_string}"
     if all_exercise.save
-      redirect_to method: :index
+      @admin_all_exercises = Admin::AllExercise.all
     else
-       render :new
+       render :index
     end
   end
 
