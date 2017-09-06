@@ -175,9 +175,20 @@
     #buttons-glyphicon{
         visibility: hidden;
     }
+
+       video{
+           border: 1px solid #ccc; padding: 20px; margin: 10px; border-radius: 20px; /* tranzitionstransitions applied to the vodeovideo element */ -moz-transition: all 1s ease-in-out; -webkit-transition: all 1s ease-in-out; -o-transition: all 1s ease-in-out; -ms-transition: all 1s ease-in-out; transition: all 1s ease-in-out;
+
+
+       }
 </style>
 
 <div class="container">
+
+  <div id="run-audio">
+
+  </div>
+
   <div id="view-translate" onclick="">
     <a href="/conversation/<%= @lesson.exercite_id %>" class="btn btn-info"> Back </a>
   </div>
@@ -206,9 +217,10 @@
 
 <script>
     $('.field-value').change(function(){
+
         var parent_obj = $(this).parent();
-        var hidden_obj = parent_obj.find('#sentece-hidden')
-        var message_text = parent_obj.find('#result-mesage')
+        var hidden_obj = parent_obj.find('#sentece-hidden');
+        var message_text = parent_obj.find('#result-mesage');
         var translate_text = hidden_obj.html();
         var ready_text = translate_text.replace(/-/i, "").trim();
         var input_text = $(this).val();
@@ -249,5 +261,11 @@
             $(this).val('');
             $(this).focus()
         }
+
+        var text_length = ready_text.length;
+        ready_text = ready_text.replace(/ /g, '%20');
+
+        var include_player = "https://translate.google.com/translate_tts?ie=UTF-8&client=tw-ob&q=" + ready_text + "&tl=en&total=1&idx=0&textlen=" + text_length;
+         $('#run-audio').append("<iframe width='305' height='50' src= " + include_player +" ></iframe>");
     });
 </script>
